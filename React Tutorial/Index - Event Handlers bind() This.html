@@ -7,12 +7,22 @@
         <div id="root"></div>
 
         <script type="text/babel">
+            const y = 34;
+
+            const obj = {
+                x: () => {
+                    console.log(this.y);
+                },
+                y: 12,
+            };
+
+            obj.x();
             class Football extends React.Component {
                 shoot = () => {
                     alert(this);
                     /*
-    The 'this' keyword refers to the component object
-    */
+            The 'this' keyword refers to the component object
+            */
                 };
                 render() {
                     return <button onClick={this.shoot}>Take the shot!</button>;
