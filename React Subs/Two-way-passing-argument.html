@@ -12,26 +12,30 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
-            function Welcome(props) {
-                return (
-                    <div>
-                        <h1>Hello, {props.name}</h1>
-                    </div>
-                );
-            }
-            function App() {
-                return (
-                    <div>
-                        <Welcome render={(x) => console.log(x)} name="Fehmi" />
-                        <Welcome name="Vehbi" />
-                        <Welcome name="Melih" />
-                        <Welcome name="Meltem" />
-                    </div>
-                );
-            }
+            class LoggingButton extends React.Component {
+                handleClick() {
+                    console.log("this is:", this);
+                }
 
-            ReactDOM.render(<App />, document.getElementById("root"));
+                render() {
+                    // This syntax ensures `this` is bound within handleClick
+                    // return (
+                    //     <button onClick={() => this.handleClick(id)}>
+                    //         Click me
+                    //     </button>
+                    // );
+                    return (
+                        <button onClick={() => this.handleClick.bind(this, id)}>
+                            Click me
+                        </button>
+                    );
+                }
+            }
         </script>
+
+        <!-- 
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button> -->
         <!--
       Note: this page is a great way to try React but it's not suitable for production.
       It slowly compiles JSX with Babel in the browser and uses a large development build of React.

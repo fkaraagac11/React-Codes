@@ -12,24 +12,40 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
-            function Welcome(props) {
-                return (
-                    <div>
-                        <h1>Hello, {props.name}</h1>
-                    </div>
-                );
-            }
-            function App() {
-                return (
-                    <div>
-                        <Welcome render={(x) => console.log(x)} name="Fehmi" />
-                        <Welcome name="Vehbi" />
-                        <Welcome name="Melih" />
-                        <Welcome name="Meltem" />
-                    </div>
-                );
-            }
+            const App = () => <Amount />;
 
+            class Amount extends React.Component {
+                constructor(props) {
+                    super(props);
+
+                    this.state = {
+                        amount: 0,
+                    };
+                }
+
+                onIncrement = () => {
+                    this.setState((state) => ({ amount: state.amount + 1 }));
+                };
+
+                onDecrement = () => {
+                    this.setState((state) => ({ amount: state.amount - 1 }));
+                };
+
+                render() {
+                    return (
+                        <div>
+                            <span>US Dollar: {this.state.amount} </span>
+
+                            <button type="button" onClick={this.onIncrement}>
+                                +
+                            </button>
+                            <button type="button" onClick={this.onDecrement}>
+                                -
+                            </button>
+                        </div>
+                    );
+                }
+            }
             ReactDOM.render(<App />, document.getElementById("root"));
         </script>
         <!--
