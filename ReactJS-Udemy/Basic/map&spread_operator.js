@@ -20,3 +20,10 @@ const x = [1, 2, 3];
 const y = x.map((NUM) => {
     console.log(NUM * 3);
 });
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map((x) => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
