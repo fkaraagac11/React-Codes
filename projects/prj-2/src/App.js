@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import P from "./P";
 import Validation from "./Validation/Validation";
 import "./App.css";
 import Char from "./Char/Char";
 
-class App extends Component {
+class App extends React.Component {
     state = {
         userInput: "",
         userAge: "",
