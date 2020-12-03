@@ -47,13 +47,14 @@ const filterCity = (text) => {
   return (
     <div className="App">
      <SearchBar onChangeText={filterCity} />
+      <div>
       <ul>
       {cities.map(item =>{
-        return <li>{item}</li>
-        
-      })}
+        return <li>{item}</li>})}
       
-      </ul>
+      </ul>  
+      </div>
+      
     </div>
   );
 }
